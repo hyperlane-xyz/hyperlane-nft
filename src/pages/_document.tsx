@@ -49,7 +49,7 @@ export default function Document() {
         />
         <meta
           property="og:description"
-          content="A simple DApp for Celo Mento exchanges."
+          content="A cross-chain NFT app built on Abacus"
         />
       </Head>
       <body className="text-black">
