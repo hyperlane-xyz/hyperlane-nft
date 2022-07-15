@@ -1,6 +1,6 @@
-# Abacus 'Hello World' App Template
+# Abacus Nft App
 
-A basic Abacus application with a router contract that can dispatch messages.
+A cross-chain NFT app built on Abacus.
 
 ## Setup
 

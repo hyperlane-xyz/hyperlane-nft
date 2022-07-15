@@ -1,7 +1,8 @@
 {
-  "name": "@abacus-network/helloworld",
-  "description": "A basic skeleton of an Abacus app",
+  "name": "@abacus-network/nft",
+  "description": "A cross-chain NFT app built on Abacus",
   "version": "0.4.0-beta0",
+  "author": "J M Rossy",
   "dependencies": {
     "@abacus-network/sdk": "^0.4.0-beta0",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
@@ -31,23 +32,14 @@
     "typechain": "8.0.0",
     "typescript": "^4.7.2"
   },
-  "files": [
-    "/dist",
-    "/contracts"
-  ],
   "homepage": "https://www.useabacus.network",
-  "keywords": [
-    "Abacus",
-    "HelloWorld",
-    "Solidity",
-    "Typescript"
-  ],
   "license": "Apache-2.0",
   "main": "dist/src/index.js",
   "packageManager": "yarn@3.2.0",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/abacus-network/abacus-app-template"
+    "url": "https://github.com/abacus-network/abacus-nft"
   },
   "scripts": {
     "build": "hardhat compile && tsc",
@@ -55,8 +47,7 @@
     "coverage": "hardhat coverage",
     "lint": "eslint . --ext .ts",
     "prettier": "prettier --write ./contracts ./src",
-    "test": "hardhat test ./src/test/**/*.test.ts",
-    "sync": "ts-node scripts/sync-with-template-repo.ts"
+    "test": "hardhat test ./src/test/**/*.test.ts"
   },
   "types": "dist/src/index.d.ts"
 }

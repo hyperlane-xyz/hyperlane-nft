@@ -37,9 +37,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@abacus-network/helloworld@workspace:.":
+"@abacus-network/nft@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@abacus-network/helloworld@workspace:."
+  resolution: "@abacus-network/nft@workspace:."
   dependencies:
     "@abacus-network/sdk": ^0.4.0-beta0
     "@nomiclabs/hardhat-ethers": ^2.0.5
