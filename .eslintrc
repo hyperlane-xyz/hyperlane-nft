@@ -15,6 +15,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "next", 
+    "next/core-web-vitals", 
     "prettier"
   ],
   "rules": {
@@ -26,6 +28,6 @@
     "@typescript-eslint/no-explicit-any": ["off"],
     "@typescript-eslint/no-floating-promises": ["error"],
     "@typescript-eslint/no-non-null-assertion": ["off"],
-    "@typescript-eslint/no-require-imports": ["warn"],
+    "@typescript-eslint/no-require-imports": ["warn"]
   }
 }

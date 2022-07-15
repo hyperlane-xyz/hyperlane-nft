@@ -1,12 +1,15 @@
 {
   "name": "@abacus-network/nft",
   "description": "A cross-chain NFT app built on Abacus",
-  "version": "0.4.0-beta0",
+  "version": "0.1.0",
   "author": "J M Rossy",
   "dependencies": {
     "@abacus-network/sdk": "^0.4.0-beta0",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
-    "ethers": "^5.6.8"
+    "ethers": "^5.6.8",
+    "next": "^12.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
@@ -15,10 +18,14 @@
     "@typechain/ethers-v5": "10.0.0",
     "@typechain/hardhat": "^6.0.0",
     "@types/mocha": "^9.1.0",
+    "@types/node": "18.0.4",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "chai": "^4.3.0",
-    "eslint": "^8.16.0",
+    "eslint": "^8.19.0",
+    "eslint-config-next": "^12.2.2",
     "eslint-config-prettier": "^8.5.0",
     "ethereum-waffle": "^3.4.4",
     "hardhat": "^2.8.4",
@@ -30,7 +37,7 @@
     "solidity-coverage": "^0.7.14",
     "ts-node": "^10.8.0",
     "typechain": "8.0.0",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.4"
   },
   "homepage": "https://www.useabacus.network",
   "license": "Apache-2.0",
@@ -42,12 +49,16 @@
     "url": "https://github.com/abacus-network/abacus-nft"
   },
   "scripts": {
-    "build": "hardhat compile && tsc",
     "clean": "hardhat clean && rm -rf dist cache src/types",
-    "coverage": "hardhat coverage",
-    "lint": "eslint . --ext .ts",
+    "dev": "next dev",
+    "build": "yarn build:contracts && yarn build:app",
+    "build:contracts": "hardhat compile",
+    "build:app": "next build",
+    "lint": "next lint",
+    "start": "next start",
     "prettier": "prettier --write ./contracts ./src",
-    "test": "hardhat test ./src/test/**/*.test.ts"
+    "test": "hardhat test ./src/test/**/*.test.ts",
+    "test:coverage": "hardhat coverage"
   },
   "types": "dist/src/index.d.ts"
 }

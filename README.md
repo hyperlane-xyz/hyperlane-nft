@@ -12,6 +12,13 @@ yarn
 yarn build
 ```
 
+## Development
+
+```sh
+# Start the Next dev server
+yarn dev
+```
+
 ## Test
 
 ```sh
