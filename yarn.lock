@@ -5,14 +5,14 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@abacus-network/app@npm:0.3.1":
-  version: 0.3.1
-  resolution: "@abacus-network/app@npm:0.3.1"
+"@abacus-network/app@npm:0.4.0-beta0":
+  version: 0.4.0-beta0
+  resolution: "@abacus-network/app@npm:0.4.0-beta0"
   dependencies:
-    "@abacus-network/core": 0.3.1
-    "@abacus-network/utils": 0.3.1
+    "@abacus-network/core": 0.4.0-beta0
+    "@abacus-network/utils": 0.4.0-beta0
     "@openzeppelin/contracts-upgradeable": ^4.5.0
-  checksum: 9cfc42d4f496792b02c5d95e4f55fe161e0e4c539f0e28a8822b05ddc33ab24635d026b874fcf2a3bafc21db64254bb96c5369487c3c85f9bde37a4e98ac1eb0
+  checksum: 13b40844b8d15012ae5e61b9f54cd8ca2ba57c5cf63555beeb9ef01c8e4c6dc032ab593e6b6feb37db64ca5d9279e1942be6e558081b6ad4f3b6df75f353d446
   languageName: node
   linkType: hard
 
@@ -25,15 +25,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@abacus-network/core@npm:0.3.1":
-  version: 0.3.1
-  resolution: "@abacus-network/core@npm:0.3.1"
+"@abacus-network/core@npm:0.4.0-beta0":
+  version: 0.4.0-beta0
+  resolution: "@abacus-network/core@npm:0.4.0-beta0"
   dependencies:
-    "@abacus-network/utils": 0.3.1
+    "@abacus-network/utils": 0.4.0-beta0
     "@openzeppelin/contracts": ^4.6.0
     "@openzeppelin/contracts-upgradeable": ^4.6.0
     "@summa-tx/memview-sol": ^2.0.0
-  checksum: 0e3ec428059d8488be742e27e32cfcbe983704dd32c359ad4389c686adb13506043f067c2e38dafdc2703d9d7c224a9d05b4b148a939a059f672e3960cda5dd0
+  checksum: 8c7d33fcebe0b3f36665a85270e0dd0ec4865542c6d020422d9c991983b6e1100722c800bdf8dd3e6c3d850bbc32a6664bfccad520f2dcbff827941f441d65de
   languageName: node
   linkType: hard
 
@@ -41,7 +41,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@abacus-network/helloworld@workspace:."
   dependencies:
-    "@abacus-network/sdk": ^0.3.1
+    "@abacus-network/sdk": ^0.4.0-beta0
     "@nomiclabs/hardhat-ethers": ^2.0.5
     "@nomiclabs/hardhat-waffle": ^2.0.2
     "@openzeppelin/contracts-upgradeable": ^4.6.0
@@ -69,28 +69,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@abacus-network/sdk@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@abacus-network/sdk@npm:0.3.1"
+"@abacus-network/sdk@npm:^0.4.0-beta0":
+  version: 0.4.0-beta0
+  resolution: "@abacus-network/sdk@npm:0.4.0-beta0"
   dependencies:
-    "@abacus-network/app": 0.3.1
+    "@abacus-network/app": 0.4.0-beta0
     "@abacus-network/celo-ethers-provider": ^0.1.0
-    "@abacus-network/core": 0.3.1
-    "@abacus-network/utils": 0.3.1
+    "@abacus-network/core": 0.4.0-beta0
+    "@abacus-network/utils": 0.4.0-beta0
     "@types/debug": ^4.1.7
     cross-fetch: ^3.1.5
     debug: ^4.3.4
     ethers: ^5.6.8
-  checksum: 53081f88aa9f8cf8750d5a4135d01b618505843681ac199387a98d0794904cc9ef23dbcb2a63db92ff31f6e1f1a34c5b52612c914cc618617285d0a73383b077
+  checksum: a88c813127c09026711a6b460bcdd3a1325908f6e1b2e079628b27f62fff355bfe9ad7ee25785dbf898fe2a566b8305ed17f2082a3fd695c9f9004a99c040148
   languageName: node
   linkType: hard
 
-"@abacus-network/utils@npm:0.3.1":
-  version: 0.3.1
-  resolution: "@abacus-network/utils@npm:0.3.1"
+"@abacus-network/utils@npm:0.4.0-beta0":
+  version: 0.4.0-beta0
+  resolution: "@abacus-network/utils@npm:0.4.0-beta0"
   dependencies:
     ethers: ^5.6.8
-  checksum: b0871b3c28f523348e1c12a1dd5c3a4c037cb671d767010e71ebdd46d7e8af918c8bae80875662720b0f8973ca71af53df1178f31e6a9b390a14c3bcd16577c7
+  checksum: 43a2d81d4123af406c480b1e75bd906ef9af89e5c0cde9b8efcea300e56c50353faa2368446753bff71d8f983a2d28a3b9280a734a711810f3c8c98248bbc55e
   languageName: node
   linkType: hard
 

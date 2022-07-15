@@ -1,13 +1,6 @@
-import {
-  ChainMap,
-  RouterConfig,
-  TestChainNames,
-  chainConnectionConfigs,
-} from '@abacus-network/sdk';
+import { RouterConfig, chainConnectionConfigs } from '@abacus-network/sdk';
 
 export type HelloWorldConfig = RouterConfig;
-
-// TODO reduce this config boilerplate
 
 export const testConfigs = {
   test1: chainConnectionConfigs.test1,
@@ -15,18 +8,7 @@ export const testConfigs = {
   test3: chainConnectionConfigs.test3,
 };
 
-export function getConfigMap(
-  signerAddress: string,
-): ChainMap<TestChainNames, { owner: string }> {
-  return {
-    test1: {
-      owner: signerAddress,
-    },
-    test2: {
-      owner: signerAddress,
-    },
-    test3: {
-      owner: signerAddress,
-    },
-  };
-}
+// SET DESIRED NETWORKS HERE
+export const prodConfigs = {
+  alfajores: chainConnectionConfigs.alfajores,
+};
