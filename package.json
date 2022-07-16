@@ -5,11 +5,14 @@
   "author": "J M Rossy",
   "dependencies": {
     "@abacus-network/sdk": "^0.4.0-beta0",
+    "@metamask/jazzicon": "https://github.com/jmrossy/jazzicon#7a8df28974b4e81129bfbe3cab76308b889032a6",
     "@openzeppelin/contracts-upgradeable": "^4.6.0",
     "ethers": "^5.6.8",
+    "formik": "^2.2.9",
     "next": "^12.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-toastify": "^9.0.5"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
@@ -57,6 +60,7 @@
     "build": "yarn build:contracts && yarn build:app",
     "build:contracts": "hardhat compile",
     "build:app": "next build",
+    "typecheck": "tsc",
     "lint": "next lint",
     "start": "next start",
     "prettier": "prettier --write ./contracts ./src",
