@@ -7,8 +7,8 @@ import {
   serializeContracts,
 } from '@abacus-network/sdk';
 
-import { prodConfigs } from '../deploy/config';
-import { HelloWorldDeployer } from '../deploy/deploy';
+import { prodConfigs } from '../src/consts/contractsConfig';
+import { AbcERC721Deployer } from '../src/contracts/deploy';
 
 async function main() {
   console.info('Getting signer');
@@ -25,7 +25,7 @@ async function main() {
     getChainToOwnerMap(prodConfigs, signer.address),
   );
 
-  const deployer = new HelloWorldDeployer(multiProvider, config, core);
+  const deployer = new AbcERC721Deployer(multiProvider, config, core);
   const chainToContracts = await deployer.deploy();
   const addresses = serializeContracts(chainToContracts);
   console.info('===Contract Addresses===');

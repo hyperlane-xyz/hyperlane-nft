@@ -8,11 +8,7 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -27,20 +23,11 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6",
+    "target": "es6"
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "./src/types/hardhat.d.ts"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "./src/"
-  ],
-  "files": [
-    "hardhat.config.ts"
-  ],
+  "exclude": ["node_modules", "dist", "./src/types/hardhat.d.ts"],
+  "include": ["next-env.d.ts", "./src/", "./scripts/"],
+  "files": ["hardhat.config.ts"],
   "ts-node": {
     "compilerOptions": {
       "module": "commonjs"

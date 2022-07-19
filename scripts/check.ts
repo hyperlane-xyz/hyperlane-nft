@@ -9,10 +9,13 @@ import {
   getMultiProviderFromConfigAndProvider,
 } from '@abacus-network/sdk';
 
-import { HelloWorldApp } from '../app/app';
-import { HelloWorldContracts, helloWorldFactories } from '../app/contracts';
-import { HelloWorldChecker } from '../deploy/check';
-import { prodConfigs } from '../deploy/config';
+import { prodConfigs } from '../src/consts/contractsConfig';
+import { AbcERC721App } from '../src/contracts/app';
+import { AbcERC721Checker } from '../src/contracts/check';
+import {
+  AbcERC721Contracts,
+  abcERC721Factories,
+} from '../src/contracts/contracts';
 
 // COPY FROM OUTPUT OF DEPLOYMENT SCRIPT OR IMPORT FROM ELSEWHERE
 const deploymentAddresses = {};
@@ -31,9 +34,9 @@ async function check() {
   );
   const contractsMap = buildContracts(
     deploymentAddresses,
-    helloWorldFactories,
-  ) as ChainMap<ChainName, HelloWorldContracts>;
-  const app = new HelloWorldApp(contractsMap, multiProvider);
+    abcERC721Factories,
+  ) as ChainMap<ChainName, AbcERC721Contracts>;
+  const app = new AbcERC721App(contractsMap, multiProvider);
 
   const core = AbacusCore.fromEnvironment('testnet2', multiProvider);
   const config = core.extendWithConnectionClientConfig(
@@ -41,9 +44,9 @@ async function check() {
   );
 
   console.info('Starting check');
-  const helloWorldChecker = new HelloWorldChecker(multiProvider, app, config);
-  await helloWorldChecker.check();
-  helloWorldChecker.expectEmpty();
+  const abcERC721Checker = new AbcERC721Checker(multiProvider, app, config);
+  await abcERC721Checker.check();
+  abcERC721Checker.expectEmpty();
 }
 
 check()

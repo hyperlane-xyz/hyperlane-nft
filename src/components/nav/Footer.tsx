@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { config } from '../../consts/config';
+import { config } from '../../consts/appConfig';
 import Discord from '../../images/logos/discord.svg';
 import Github from '../../images/logos/github.svg';
 import Twitter from '../../images/logos/twitter.svg';

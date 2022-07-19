@@ -1,6 +1,6 @@
 import { RouterConfig, chainConnectionConfigs } from '@abacus-network/sdk';
 
-export type HelloWorldConfig = RouterConfig;
+export type AbcERC721Config = RouterConfig;
 
 export const testConfigs = {
   test1: chainConnectionConfigs.test1,
