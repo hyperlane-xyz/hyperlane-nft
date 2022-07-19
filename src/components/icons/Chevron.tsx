@@ -1,30 +1,30 @@
-import { memo } from 'react'
+import { memo } from 'react';
 
 interface Props {
-  width?: string | number
-  height?: string | number
-  direction: 'n' | 'e' | 's' | 'w'
-  color?: string
-  classes?: string
+  width?: string | number;
+  height?: string | number;
+  direction: 'n' | 'e' | 's' | 'w';
+  color?: string;
+  classes?: string;
 }
 
 function _ChevronIcon({ width, height, direction, color, classes }: Props) {
-  let className: string
+  let className: string;
   switch (direction) {
     case 'n':
-      className = 'rotate-180'
-      break
+      className = 'rotate-180';
+      break;
     case 'e':
-      className = 'rotate-270'
-      break
+      className = 'rotate-270';
+      break;
     case 's':
-      className = ''
-      break
+      className = '';
+      break;
     case 'w':
-      className = 'rotate-90'
-      break
+      className = 'rotate-90';
+      break;
     default:
-      throw new Error(`Invalid chevron direction ${direction}`)
+      throw new Error(`Invalid chevron direction ${direction}`);
   }
 
   return (
@@ -45,7 +45,7 @@ function _ChevronIcon({ width, height, direction, color, classes }: Props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
-export const ChevronIcon = memo(_ChevronIcon)
+export const ChevronIcon = memo(_ChevronIcon);
