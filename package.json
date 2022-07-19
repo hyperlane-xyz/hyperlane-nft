@@ -55,7 +55,7 @@
     "url": "https://github.com/abacus-network/abacus-nft"
   },
   "scripts": {
-    "clean": "hardhat clean && rm -rf dist cache src/types",
+    "clean": "hardhat clean && rm -rf dist cache src/types .next",
     "dev": "next dev",
     "build": "yarn build:contracts && yarn build:app",
     "build:contracts": "hardhat compile",
