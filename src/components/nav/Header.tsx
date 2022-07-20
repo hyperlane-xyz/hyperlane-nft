@@ -1,9 +1,8 @@
 import Image from 'next/future/image';
 import Link from 'next/link';
 
+import { ConnectButton } from '../../features/wallet/ConnectButton';
 import Logo from '../../images/logos/abacus-with-name.svg';
-
-import { ConnectButton } from './ConnectButton';
 
 export function Header() {
   return (

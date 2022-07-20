@@ -6,7 +6,7 @@ import {
   MultiProvider,
 } from '@abacus-network/sdk';
 
-import { AbcERC721Config } from '../consts/contractsConfig';
+import { AbcERC721Config } from '../consts/networksConfig';
 
 import {
   AbcERC721Contracts,

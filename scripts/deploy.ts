@@ -7,7 +7,7 @@ import {
   serializeContracts,
 } from '@abacus-network/sdk';
 
-import { prodConfigs } from '../src/consts/contractsConfig';
+import { prodConfigs } from '../src/consts/networksConfig';
 import { AbcERC721Deployer } from '../src/contracts/deploy';
 
 async function main() {
@@ -20,7 +20,7 @@ async function main() {
     signer,
   );
 
-  const core = AbacusCore.fromEnvironment('testnet2', multiProvider);
+  const core = AbacusCore.fromEnvironment('mainnet', multiProvider);
   const config = core.extendWithConnectionClientConfig(
     getChainToOwnerMap(prodConfigs, signer.address),
   );
