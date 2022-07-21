@@ -4,15 +4,13 @@ import { useCallback } from 'react';
 import { SolidButton } from '../../components/buttons/SolidButton';
 import { useTimeout } from '../../utils/timeout';
 
-import { TransferFormValues } from './types';
+import { SearchFormValues } from './types';
 
-const initialValues: TransferFormValues = {
-  recipient: '',
+const initialValues: SearchFormValues = {
   contract: '',
-  tokenId: '',
 };
 
-export function TransferForm() {
+export function SearchForm() {
   const address = null;
   const connect = () => {
     alert('TODO');
@@ -27,7 +25,7 @@ export function TransferForm() {
   };
 
   return (
-    <Formik<TransferFormValues>
+    <Formik<SearchFormValues>
       initialValues={initialValues}
       onSubmit={onSubmit}
       validate={validateForm}
@@ -35,15 +33,6 @@ export function TransferForm() {
       validateOnBlur={false}
     >
       <Form className="flex flex-col justify-center items-center w-full">
-        <label htmlFor="recipient" className="text-gray-700">
-          Recipient Address
-        </label>
-        <Field
-          name="recipient"
-          type="string"
-          placeholder="0x123..."
-          className="w-100 mt-2 p-2 text-lg font-mono border border-color-gray-800 rounded focus:outline-none"
-        />
         <label htmlFor="contract" className="mt-3 text-gray-700">
           Contract Address
         </label>
@@ -51,15 +40,6 @@ export function TransferForm() {
           name="contract"
           type="string"
           placeholder="0x123..."
-          className="w-100 mt-2 p-2 text-lg font-mono border border-color-gray-800 rounded focus:outline-none"
-        />
-        <label htmlFor="tokenId" className="mt-3 text-gray-700">
-          Token Id
-        </label>
-        <Field
-          name="tokenId"
-          type="string"
-          placeholder="42"
           className="w-100 mt-2 p-2 text-lg font-mono border border-color-gray-800 rounded focus:outline-none"
         />
         <div className="flex justify-center mt-5 mb-1">
@@ -75,12 +55,11 @@ interface ButtonProps {
   connect: () => any; // TODO
 }
 
+// TODO dedupe with transferform
 function SubmitButton({ address, connect }: ButtonProps) {
   const { errors, setErrors, touched, setTouched } =
-    useFormikContext<TransferFormValues>();
-  const error =
-    touched.recipient &&
-    (errors.recipient || errors.contract || errors.tokenId);
+    useFormikContext<SearchFormValues>();
+  const error = touched.contract && errors.contract;
   const classes = error ? 'bg-red-500 hover:bg-red-500 active:bg-red-500' : '';
   const text = error ? error : address ? 'Continue' : 'Connect Wallet';
   const type = address ? 'submit' : 'button';

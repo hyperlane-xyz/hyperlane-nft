@@ -1,4 +1,4 @@
-# Abacus Nft App
+# Abacus Nft Example App
 
 A cross-chain NFT app built on Abacus.
 
