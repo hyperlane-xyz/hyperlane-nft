@@ -26,14 +26,13 @@ export function normalizeAddress(address: string) {
   return getAddress(address);
 }
 
-export function shortenAddress(
-  address: string,
-  elipsis?: boolean,
-  capitalize?: boolean,
-) {
+export function shortenAddress(address: string, capitalize?: boolean) {
   validateAddress(address, 'shorten');
+  const normalized = normalizeAddress(address);
   const shortened =
-    normalizeAddress(address).substr(0, 8) + (elipsis ? '...' : '');
+    normalized.substring(0, 6) +
+    '...' +
+    normalized.substring(normalized.length - 4);
   return capitalize ? capitalizeAddress(shortened) : shortened;
 }
 

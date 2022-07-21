@@ -1,7 +1,7 @@
 import Image from 'next/future/image';
 import Link from 'next/link';
 
-import { ConnectButton } from '../../features/wallet/ConnectButton';
+import { WalletControlBar } from '../../features/wallet/WalletControlBar';
 import Logo from '../../images/logos/abacus-with-name.svg';
 
 export function Header() {
@@ -21,7 +21,7 @@ export function Header() {
             </div>
           </a>
         </Link>
-        <ConnectButton />
+        <WalletControlBar />
       </div>
     </header>
   );
