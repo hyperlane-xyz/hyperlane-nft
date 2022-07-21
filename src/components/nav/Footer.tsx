@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { config } from '../../consts/appConfig';
+import { BlockIndicator } from '../../features/blocks/BlockIndicator';
 import Discord from '../../images/logos/discord.svg';
 import Github from '../../images/logos/github.svg';
 import Twitter from '../../images/logos/twitter.svg';
@@ -52,24 +53,5 @@ function FooterIconLink({
     >
       <Image src={imgSrc} alt={alt} width={25} height={25} />
     </a>
-  );
-}
-
-function BlockIndicator() {
-  const classColor = 'green';
-  const summary = 'Connected';
-  return (
-    <button
-      className="flex items-center hover:underline"
-      // onClick={/* TODO */}
-    >
-      <div className="mr-3 text-sm font-medium pt-px">{summary}</div>
-      <div
-        className={`rounded-full w-3.5 h-3.5 ${'bg-' + classColor} border-2 ${
-          'border-' + classColor
-        } border-opacity-50`}
-      ></div>
-      <div className="hidden bg-yellow-300 bg-red-600"></div>
-    </button>
   );
 }

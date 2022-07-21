@@ -1,5 +1,6 @@
 import { Field, Form, Formik, useFormikContext } from 'formik';
 import { useCallback } from 'react';
+import { useAccount } from 'wagmi';
 
 import { SolidButton } from '../../components/buttons/SolidButton';
 import { useTimeout } from '../../utils/timeout';
@@ -13,11 +14,6 @@ const initialValues: TransferFormValues = {
 };
 
 export function TransferForm() {
-  const address = null;
-  const connect = () => {
-    alert('TODO');
-  };
-
   const onSubmit = () => {
     alert('TODO');
   };
@@ -63,28 +59,26 @@ export function TransferForm() {
           className="w-100 mt-2 p-2 text-lg font-mono border border-color-gray-800 rounded focus:outline-none"
         />
         <div className="flex justify-center mt-5 mb-1">
-          <SubmitButton address={address} connect={connect} />
+          <SubmitButton />
         </div>
       </Form>
     </Formik>
   );
 }
 
-interface ButtonProps {
-  address: string | null;
-  connect: () => any; // TODO
-}
+function SubmitButton() {
+  const { address, isConnected } = useAccount();
+  const accountReady = address && isConnected;
 
-function SubmitButton({ address, connect }: ButtonProps) {
   const { errors, setErrors, touched, setTouched } =
     useFormikContext<TransferFormValues>();
   const error =
     touched.recipient &&
     (errors.recipient || errors.contract || errors.tokenId);
   const classes = error ? 'bg-red-500 hover:bg-red-500 active:bg-red-500' : '';
-  const text = error ? error : address ? 'Continue' : 'Connect Wallet';
-  const type = address ? 'submit' : 'button';
-  const onClick = address ? undefined : connect;
+  const text = error ? error : accountReady ? 'Continue' : 'Connect Wallet';
+  const type = accountReady ? 'submit' : 'button';
+  const onClick = () => alert('TODO');
 
   const clearErrors = useCallback(() => {
     setErrors({});
