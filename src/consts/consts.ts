@@ -1,1 +1,1 @@
-export const STALE_BLOCK_TIME = 25000; // 25 seconds
+export const TOKEN_STORAGE_KEY = 'ABC_ERC_721_TOKENS';

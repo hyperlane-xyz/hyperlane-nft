@@ -1,7 +1,8 @@
 export interface Nft {
+  chainId: number;
   contract: Address;
   tokenId: number;
-  tokenUri: string;
+  tokenUri?: string;
   imageUri?: string;
 }
 
@@ -10,10 +11,6 @@ export interface NftContract {
   name: string;
   symbol: string;
   uri?: string;
-}
-
-export interface AddNftContractParams {
-  address: Address;
 }
 
 // From the IPFS json files for NFTs
