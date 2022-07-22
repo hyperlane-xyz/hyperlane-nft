@@ -17,7 +17,7 @@ export function AppLayout({ pathName, children }: PropsWithChildren<Props>) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{`Abacus Nft Example App | ${getHeadTitle(pathName)}`}</title>
       </Head>
-      <div className="flex flex-col justify-between h-full min-h-screen w-full min-w-screen bg-beige">
+      <div className="flex flex-col justify-between h-full min-h-screen w-full min-w-screen bg-beige-500">
         <Header />
         <main className="w-full">{children}</main>
         <Footer />

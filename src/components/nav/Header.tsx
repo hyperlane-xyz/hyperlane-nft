@@ -15,8 +15,8 @@ export function Header() {
                 src={Logo}
                 alt="Abacus Logo"
                 quality={100}
-                width={180}
-                height={80}
+                width={170}
+                height={50}
               />
             </div>
           </a>

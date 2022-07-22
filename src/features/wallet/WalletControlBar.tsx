@@ -37,9 +37,10 @@ export function WalletControlBar() {
 }
 
 function AccountDropdown() {
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, connector } = useAccount();
   const { connectAsync, connectors } = useConnect();
   const { disconnectAsync } = useDisconnect();
+  const isAccountReady = address && isConnected && connector;
 
   const { buttonProps, itemProps, isOpen, setIsOpen } = useDropdownMenu(2);
 
@@ -76,10 +77,13 @@ function AccountDropdown() {
 
   return (
     <div className="relative">
-      {address && isConnected ? (
+      {isAccountReady ? (
         <button className={styles.dropdownButton} {...buttonProps}>
           <Identicon address={address} size={30} />
-          <div className="mx-2 text-sm">{shortenAddress(address, true)}</div>
+          <div className="flex flex-col mx-3 items-start">
+            <div className="text-xs">{connector.name}</div>
+            <div className="text-xs">{shortenAddress(address, true)}</div>
+          </div>
           <Icon src={ChevronDown} alt="Down Arrow" size={14} />
         </button>
       ) : (
@@ -129,15 +133,15 @@ function ChainDropdown() {
       await switchNetworkAsync(targetChainId);
     } catch (error) {
       logger.error('Error switching network', error);
-      toast.error('Could not switching network');
+      toast.error('Could not switch network');
     }
   };
 
   return (
     <div className="relative">
       <button className={styles.dropdownButton} {...buttonProps}>
-        <Icon src={Cube} alt="Network" />
-        <div className="mx-2">{chain?.name || 'Unknown'}</div>
+        <Icon src={Cube} alt="Network" size={16} />
+        <div className="mx-2">{chain?.name || 'None'}</div>
         <Icon src={ChevronDown} alt="Down Arrow" size={14} />
       </button>
 

@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const [page, setPage] = useState<'search' | 'transfer'>('search');
   return (
     <div className="flex flex-col justify-center items-center h-full">
-      <div className="w-128 px-4 pt-2 pb-1 bg-red-400 rounded-t-lg">
+      <div className="w-112 px-4 pt-2 pb-1 bg-red-400 rounded-t-lg">
         <h1 className="text-gray-50 text-center">Abacus Example Nft App</h1>
         <div className="flex justify-center mt-3 space-x-20">
           <PageNavButton
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           </PageNavButton>
         </div>
       </div>
-      <FloatingBox width="w-128" classes="relative -top-1">
+      <FloatingBox width="w-112" classes="relative -top-1">
         {page === 'search' && <SearchForm />}
         {page === 'transfer' && <TransferForm />}
       </FloatingBox>
