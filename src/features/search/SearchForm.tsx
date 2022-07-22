@@ -1,6 +1,7 @@
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 
 import { ConnectAwareSubmitButton } from '../../components/buttons/ConnectAwareSubmitButton';
+import { TextField } from '../../components/input/TextField';
 
 import { SearchFormValues } from './types';
 
@@ -29,12 +30,7 @@ export function SearchForm() {
         <label htmlFor="contract" className="mt-3 text-gray-700">
           Contract Address
         </label>
-        <Field
-          name="contract"
-          type="string"
-          placeholder="0x123..."
-          className="w-100 mt-2 p-2 text-lg font-mono border border-color-gray-800 rounded focus:outline-none"
-        />
+        <TextField name="contract" placeholder="0x123..." />
         <div className="flex justify-center mt-5 mb-1">
           <ConnectAwareSubmitButton connectText="Continue" />
         </div>
