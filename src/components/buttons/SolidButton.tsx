@@ -4,7 +4,7 @@ interface ButtonProps {
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   type?: 'submit' | 'reset' | 'button';
   onClick?: () => void;
-  color?: 'white' | 'beige' | 'green' | 'red'; // defaults to green
+  color?: 'white' | 'beige' | 'green' | 'red'; // defaults to beige
   classes?: string;
   bold?: boolean;
   disabled?: boolean;

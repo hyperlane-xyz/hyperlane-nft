@@ -1,13 +1,7 @@
 import Image from 'next/future/image';
 import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
 import { toast } from 'react-toastify';
-import {
-  useAccount,
-  useConnect,
-  useDisconnect,
-  useNetwork,
-  useSwitchNetwork,
-} from 'wagmi';
+import { useDisconnect, useNetwork, useSwitchNetwork } from 'wagmi';
 
 import { Identicon } from '../../components/icons/Identicon';
 import ChevronDown from '../../images/icons/chevron-down.svg';
@@ -19,6 +13,8 @@ import { shortenAddress } from '../../utils/addresses';
 import { tryClipboardSet } from '../../utils/clipboard';
 import { logger } from '../../utils/logger';
 import { useIsSsr } from '../../utils/ssr';
+
+import { useAccountOrConnect } from './useAccountOrConnect';
 
 export function WalletControlBar() {
   const isSsr = useIsSsr();
@@ -37,26 +33,12 @@ export function WalletControlBar() {
 }
 
 function AccountDropdown() {
-  const { address, isConnected, connector } = useAccount();
-  const { connectAsync, connectors } = useConnect();
+  const { address, isConnected, connector, onClickConnect } =
+    useAccountOrConnect();
+  const isAccountReady = !!(address && isConnected && connector);
   const { disconnectAsync } = useDisconnect();
-  const isAccountReady = address && isConnected && connector;
 
   const { buttonProps, itemProps, isOpen, setIsOpen } = useDropdownMenu(2);
-
-  const onClickConnect = async () => {
-    setIsOpen(false);
-    try {
-      if (!connectAsync) throw new Error('Connect function is null');
-      // TODO pop a modal to support other connectors
-      // Consider rainbowkit for this
-      // For now this just uses InjectedConnector (i.e. Metamask)
-      await connectAsync({ connector: connectors[0] });
-    } catch (error) {
-      logger.error('Error connecting to wallet', error);
-      toast.error('Could not connect to wallet');
-    }
-  };
 
   const onClickDisconnect = async () => {
     setIsOpen(false);

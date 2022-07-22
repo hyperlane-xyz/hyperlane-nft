@@ -1,8 +1,6 @@
-import { Field, Form, Formik, useFormikContext } from 'formik';
-import { useCallback } from 'react';
+import { Field, Form, Formik } from 'formik';
 
-import { SolidButton } from '../../components/buttons/SolidButton';
-import { useTimeout } from '../../utils/timeout';
+import { ConnectAwareSubmitButton } from '../../components/buttons/ConnectAwareSubmitButton';
 
 import { SearchFormValues } from './types';
 
@@ -11,17 +9,12 @@ const initialValues: SearchFormValues = {
 };
 
 export function SearchForm() {
-  const address = null;
-  const connect = () => {
-    alert('TODO');
+  const onSubmit = (values: SearchFormValues) => {
+    alert(JSON.stringify(values));
   };
 
-  const onSubmit = () => {
-    alert('TODO');
-  };
-
-  const validateForm = () => {
-    alert('TODO');
+  const validateForm = (values: SearchFormValues) => {
+    alert(JSON.stringify(values));
   };
 
   return (
@@ -43,39 +36,9 @@ export function SearchForm() {
           className="w-100 mt-2 p-2 text-lg font-mono border border-color-gray-800 rounded focus:outline-none"
         />
         <div className="flex justify-center mt-5 mb-1">
-          <SubmitButton address={address} connect={connect} />
+          <ConnectAwareSubmitButton connectText="Continue" />
         </div>
       </Form>
     </Formik>
-  );
-}
-
-interface ButtonProps {
-  address: string | null;
-  connect: () => any; // TODO
-}
-
-// TODO dedupe with transferform
-function SubmitButton({ address, connect }: ButtonProps) {
-  const { errors, setErrors, touched, setTouched } =
-    useFormikContext<SearchFormValues>();
-  const error = touched.contract && errors.contract;
-  const classes = error ? 'bg-red-500 hover:bg-red-500 active:bg-red-500' : '';
-  const text = error ? error : address ? 'Continue' : 'Connect Wallet';
-  const type = address ? 'submit' : 'button';
-  const onClick = address ? undefined : connect;
-
-  const clearErrors = useCallback(() => {
-    setErrors({});
-    setTouched({});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setErrors, setTouched, errors, touched]);
-
-  useTimeout(clearErrors, 3000);
-
-  return (
-    <SolidButton size="m" type={type} onClick={onClick} classes={classes}>
-      {text}
-    </SolidButton>
   );
 }
