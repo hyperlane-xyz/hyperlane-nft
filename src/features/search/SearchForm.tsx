@@ -14,12 +14,12 @@ const initialValues: SearchFormValues = {
 };
 
 export function SearchForm() {
-  const { nfts, saveNft } = useSavedNfts();
+  const { nfts, addNft } = useSavedNfts();
 
   const onSubmit = (values: SearchFormValues) => {
     logger.debug(JSON.stringify(values));
     const tokenId = Math.round(Math.random() * 1000);
-    saveNft({
+    addNft({
       chainId: 1,
       contract: '0x35b74Ed5038bf0488Ff33bD9819b9D12D10A7560',
       tokenId,

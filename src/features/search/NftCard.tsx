@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { allChains } from 'wagmi';
 
 import { IconButton } from '../../components/buttons/IconButton';
 import chevronLeft from '../../images/icons/chevron-compact-left.svg';
 import chevronRight from '../../images/icons/chevron-compact-right.svg';
 import { Nft } from '../../nftTypes';
 import { shortenAddress } from '../../utils/addresses';
+import { getChainName } from '../../utils/chains';
 import { toTitleCase } from '../../utils/string';
 
 export function NftCard({ nft }: { nft: Nft }) {
-  const chain = allChains.find((c) => c.id === nft.chainId);
-  const chainName = toTitleCase(chain?.name ?? 'unknown');
+  const chainName = toTitleCase(getChainName(nft.chainId));
   const contract = shortenAddress(nft.contract);
   return (
     <div className="flex flex-col items-center p-2 bg-gray-50 rounded-md drop-shadow">

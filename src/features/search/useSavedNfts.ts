@@ -16,7 +16,7 @@ export function useSavedNfts() {
     setNftMap(savedNfts ?? {});
   }, []);
 
-  const saveNft = useCallback(
+  const addNft = useCallback(
     (nft: Nft) => {
       const { chainId, contract } = nft;
       const newNfts = { ...nftMap };
@@ -29,11 +29,22 @@ export function useSavedNfts() {
     [nftMap, setNftMap],
   );
 
+  const removeNft = useCallback(
+    (nft: Nft) => {
+      const { chainId, contract } = nft;
+      const newNfts = { ...nftMap };
+      delete newNfts[chainId][contract][nft.tokenId];
+      setNftMap(newNfts);
+      setNftsInStorage(newNfts);
+    },
+    [nftMap, setNftMap],
+  );
+
   const nftList = Object.values(nftMap)
     .flatMap((byContract) => Object.values(byContract))
     .flatMap((byId) => Object.values(byId));
 
-  return { nfts: nftList, saveNft };
+  return { nfts: nftList, addNft, removeNft };
 }
 
 function getNftsFromStorage() {

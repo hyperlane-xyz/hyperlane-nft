@@ -1,5 +1,5 @@
 export interface TransferFormValues {
+  nftId: string;
   recipient: Address;
-  contract: Address;
-  tokenId: string;
+  chainId: string;
 }
