@@ -33,9 +33,9 @@ export function SolidButton(props: PropsWithChildren<ButtonProps>) {
   const sizing = sizeToClasses(size);
   let baseColors, onHover, onActive;
   if (color === 'beige') {
-    baseColors = 'bg-beige-600 text-gray-700';
-    onHover = 'hover:bg-beige-500';
-    onActive = 'active:bg-beige-400';
+    baseColors = 'bg-beige-500 text-gray-700';
+    onHover = 'hover:bg-beige-600';
+    onActive = 'active:bg-beige-700';
   } else if (color === 'green') {
     baseColors = 'bg-green-500 text-white';
     onHover = 'hover:bg-green-600';
