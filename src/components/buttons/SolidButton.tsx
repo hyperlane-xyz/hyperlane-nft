@@ -29,7 +29,7 @@ export function SolidButton(props: PropsWithChildren<ButtonProps>) {
   const color = _color ?? 'beige';
 
   const base =
-    'flex items-center justify-center rounded-full transition-all duration-300';
+    'flex items-center justify-center rounded-full transition-all duration-1000';
   const sizing = sizeToClasses(size);
   let baseColors, onHover, onActive;
   if (color === 'beige') {

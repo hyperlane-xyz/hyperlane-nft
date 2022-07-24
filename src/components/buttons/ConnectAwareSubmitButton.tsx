@@ -22,11 +22,11 @@ export function ConnectAwareSubmitButton<FormValues = any>(props: Props) {
 
   const hasError =
     Object.keys(touched).length > 0 && Object.keys(errors).length > 0;
-  const classes = hasError
-    ? 'bg-red-500 hover:bg-red-500 active:bg-red-500'
-    : '';
+  const firstError = `${Object.values(errors)[0]}` || 'Unknown error';
+
+  const color = hasError ? 'red' : 'beige';
   const text = hasError
-    ? hasError
+    ? firstError
     : isAccountReady
     ? connectText
     : 'Connect Wallet';
@@ -43,7 +43,7 @@ export function ConnectAwareSubmitButton<FormValues = any>(props: Props) {
   useTimeout(clearErrors, 3000);
 
   return (
-    <SolidButton size="m" type={type} onClick={onClick} classes={classes}>
+    <SolidButton size="m" type={type} color={color} onClick={onClick}>
       {text}
     </SolidButton>
   );

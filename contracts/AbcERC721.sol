@@ -1,17 +1,18 @@
-// TODO de-dupe with https://github.com/abacus-network/abacus-token/blob/main/contracts/AbcERC20.sol
+// TODO de-dupe with https://github.com/abacus-network/abacus-token/blob/main/contracts/AbcERC721.sol
 
 // SPDX-License-Identifier: MIT OR Apache-2.0
 pragma solidity ^0.8.13;
 
 import {Router} from "@abacus-network/app/contracts/Router.sol";
 
-import {ERC721Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import {ERC721EnumerableUpgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol";
 
 /**
  * @title Abacus Token that extends the ERC721 token standard to enable native interchain transfers.
  * @author Abacus Works
  */
-contract AbcERC721 is Router, ERC721Upgradeable {
+contract AbcERC721 is Router, ERC721EnumerableUpgradeable {
+   
     /**
      * @dev Emitted on `transferRemote` when a transfer message is dispatched.
      * @param destination The identifier of the destination chain.
