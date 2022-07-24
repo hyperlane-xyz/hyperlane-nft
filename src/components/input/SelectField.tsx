@@ -10,7 +10,7 @@ export function SelectField(props: Props) {
   return (
     <Field
       as="select"
-      className="w-100 mt-2 p-2 border border-color-gray-800 rounded focus:outline-none"
+      className="w-100 mt-2 p-2 text-sm border border-color-gray-800 rounded focus:outline-none"
       {...passThruProps}
     >
       {options.map((o, i) => (

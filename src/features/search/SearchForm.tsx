@@ -48,7 +48,7 @@ export function SearchForm() {
               No NFTs yet, try adding a contract below
             </div>
           )}
-          <div className="px-2 w-full">
+          <div className="px-1 w-full">
             <HrDivider classes="my-5" />
           </div>
           <h2 className="text-center text-gray-700 mb-1">

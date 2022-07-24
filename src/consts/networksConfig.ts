@@ -1,4 +1,4 @@
-import { Chain, chain } from 'wagmi';
+import { Chain, allChains as allChainsWagmi, chain } from 'wagmi';
 
 import { RouterConfig, chainConnectionConfigs } from '@abacus-network/sdk';
 
@@ -73,3 +73,9 @@ export const prodChains = [
 ];
 
 export const testChains = [chain.goerli, celoAlfajoresWagmiChain];
+
+export const allChains = [
+  ...allChainsWagmi,
+  celoMainnetWagmiChain,
+  celoAlfajoresWagmiChain,
+];
