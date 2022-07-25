@@ -1,10 +1,11 @@
 import { Form, Formik } from 'formik';
+import { useRouter } from 'next/router';
 import { useNetwork } from 'wagmi';
 
 import { ConnectAwareSubmitButton } from '../../components/buttons/ConnectAwareSubmitButton';
 import { SelectField } from '../../components/input/SelectField';
 import { TextField } from '../../components/input/TextField';
-import { shortenAddress } from '../../utils/addresses';
+import { isValidAddress, shortenAddress } from '../../utils/addresses';
 import { getChainName } from '../../utils/chains';
 import { useSavedNfts } from '../search/useSavedNfts';
 
@@ -17,10 +18,11 @@ const initialValues: TransferFormValues = {
 };
 
 export function TransferForm() {
+  const router = useRouter();
   const { chains } = useNetwork();
   const { nfts } = useSavedNfts();
 
-  // TODO CASA standard
+  // TODO consider using CASA standard here
   const nftOptions = nfts.map((n) => ({
     value: `${n.chainId}:${n.contract}:${n.tokenId}`,
     display: `${getChainName(n.chainId)} - ${shortenAddress(n.contract)} - #${
@@ -33,12 +35,21 @@ export function TransferForm() {
     display: getChainName(c.id),
   }));
 
-  const onSubmit = (values: TransferFormValues) => {
-    alert(JSON.stringify(values));
+  const onSubmit = async (values: TransferFormValues) => {
+    await router.push({ pathname: '/transfer/review', query: { ...values } });
   };
 
-  const validateForm = (values: TransferFormValues) => {
-    alert(JSON.stringify(values));
+  const validateForm = ({ nftId, chainId, recipient }: TransferFormValues) => {
+    if (!nftId) {
+      return { nftId: 'Nft required' };
+    }
+    if (!chainId) {
+      return { chainId: 'Chain required' };
+    }
+    if (!isValidAddress(recipient)) {
+      return { recipient: 'Invalid Address' };
+    }
+    return {};
   };
 
   return (
@@ -51,9 +62,13 @@ export function TransferForm() {
     >
       <Form className="flex flex-col justify-center items-center w-full">
         <label htmlFor="recipient" className="text-gray-700 mt-1">
-          Select NFT
+          Source NFT
         </label>
-        <SelectField options={nftOptions} name="nftId" />
+        <SelectField
+          options={nftOptions}
+          name="nftId"
+          placeholder="Select NFT"
+        />
         <label htmlFor="recipient" className="mt-3 text-gray-700">
           Recipient Address
         </label>
@@ -61,7 +76,11 @@ export function TransferForm() {
         <label htmlFor="contract" className="mt-3 text-gray-700">
           Destination Chain
         </label>
-        <SelectField options={chainOptions} name="chainId" />
+        <SelectField
+          options={chainOptions}
+          name="chainId"
+          placeholder="Select chain"
+        />
         <div className="flex justify-center mt-5 mb-1">
           <ConnectAwareSubmitButton connectText="Continue" />
         </div>
