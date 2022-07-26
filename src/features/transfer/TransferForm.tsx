@@ -10,6 +10,7 @@ import { getChainName } from '../../utils/chains';
 import { useSavedNfts } from '../search/useSavedNfts';
 
 import { TransferFormValues } from './types';
+import { serializeNft } from './utils';
 
 const initialValues: TransferFormValues = {
   nftId: '',
@@ -22,9 +23,8 @@ export function TransferForm() {
   const { chains } = useNetwork();
   const { nfts } = useSavedNfts();
 
-  // TODO consider using CASA standard here
   const nftOptions = nfts.map((n) => ({
-    value: `${n.chainId}:${n.contract}:${n.tokenId}`,
+    value: serializeNft(n),
     display: `${getChainName(n.chainId)} - ${shortenAddress(n.contract)} - #${
       n.tokenId
     }`,
