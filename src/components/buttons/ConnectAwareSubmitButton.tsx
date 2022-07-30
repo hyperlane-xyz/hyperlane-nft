@@ -1,7 +1,8 @@
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useFormikContext } from 'formik';
 import { useCallback } from 'react';
+import { useAccount } from 'wagmi';
 
-import { useAccountOrConnect } from '../../features/wallet/useAccountOrConnect';
 import { useTimeout } from '../../utils/timeout';
 
 import { SolidButton } from './SolidButton';
@@ -13,8 +14,9 @@ interface Props {
 export function ConnectAwareSubmitButton<FormValues = any>(props: Props) {
   const { connectText } = props;
 
-  const { address, isConnected, connector, onClickConnect } =
-    useAccountOrConnect();
+  const { address, isConnected, connector } = useAccount();
+  const { openConnectModal } = useConnectModal();
+
   const isAccountReady = !!(address && isConnected && connector);
 
   const { errors, setErrors, touched, setTouched } =
@@ -31,7 +33,7 @@ export function ConnectAwareSubmitButton<FormValues = any>(props: Props) {
     ? connectText
     : 'Connect Wallet';
   const type = isAccountReady ? 'submit' : 'button';
-  const onClick = isAccountReady ? undefined : onClickConnect;
+  const onClick = isAccountReady ? undefined : openConnectModal;
 
   // Automatically clear error state after a timeout
   const clearErrors = useCallback(() => {

@@ -1,9 +1,18 @@
 import { useBlockNumber } from 'wagmi';
 
+import { useIsSsr } from '../../utils/ssr';
+
 export function BlockIndicator() {
   const { data: blockNumber, status } = useBlockNumber({
     watch: true,
   });
+
+  const isSsr = useIsSsr();
+  if (isSsr) {
+    // https://github.com/wagmi-dev/wagmi/issues/542#issuecomment-1144178142
+    return null;
+  }
+
   let circleColor = 'gray-600';
   if (blockNumber && status === 'success') {
     circleColor = 'green-500';

@@ -1,7 +1,8 @@
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 import Image from 'next/future/image';
 import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
 import { toast } from 'react-toastify';
-import { useDisconnect, useNetwork, useSwitchNetwork } from 'wagmi';
+import { useAccount, useDisconnect, useNetwork, useSwitchNetwork } from 'wagmi';
 
 import { Identicon } from '../../components/icons/Identicon';
 import ChevronDown from '../../images/icons/chevron-down.svg';
@@ -13,8 +14,6 @@ import { shortenAddress } from '../../utils/addresses';
 import { tryClipboardSet } from '../../utils/clipboard';
 import { logger } from '../../utils/logger';
 import { useIsSsr } from '../../utils/ssr';
-
-import { useAccountOrConnect } from './useAccountOrConnect';
 
 export function WalletControlBar() {
   const isSsr = useIsSsr();
@@ -33,10 +32,11 @@ export function WalletControlBar() {
 }
 
 function AccountDropdown() {
-  const { address, isConnected, connector, onClickConnect } =
-    useAccountOrConnect();
-  const isAccountReady = !!(address && isConnected && connector);
+  const { address, isConnected, connector } = useAccount();
+  const { openConnectModal } = useConnectModal();
   const { disconnectAsync } = useDisconnect();
+
+  const isAccountReady = !!(address && isConnected && connector);
 
   const { buttonProps, itemProps, isOpen, setIsOpen } = useDropdownMenu(2);
 
@@ -69,8 +69,8 @@ function AccountDropdown() {
           <Icon src={ChevronDown} alt="Down Arrow" size={14} />
         </button>
       ) : (
-        <button className={styles.dropdownButton} onClick={onClickConnect}>
-          <Icon src={Wallet} alt="Copy" />
+        <button className={styles.dropdownButton} onClick={openConnectModal}>
+          <Icon src={Wallet} alt="Wallet" />
           <div className="ml-2.5">Connect</div>
         </button>
       )}
