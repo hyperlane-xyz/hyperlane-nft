@@ -1,6 +1,6 @@
-# Abacus Nft Example App
+# Hyperlane Nft Example App
 
-A cross-chain NFT app built on Abacus.
+A cross-chain NFT app built on Hyperlane.
 
 ## Setup
 
@@ -31,4 +31,4 @@ yarn lint
 
 ## Learn more
 
-For more information, see the [Abacus documentation](https://docs.useabacus.network/abacus-docs/developers/getting-started).
+For more information, see the [Hyperlane documentation](https://docs.hyperlane.xyz/hyperlane-docs).

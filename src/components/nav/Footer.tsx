@@ -1,6 +1,6 @@
 import Image from 'next/future/image';
 
-import { config } from '../../consts/appConfig';
+import { links } from '../../consts/links';
 import { BlockIndicator } from '../../features/blocks/BlockIndicator';
 import Discord from '../../images/logos/discord.svg';
 import Github from '../../images/logos/github.svg';
@@ -11,21 +11,9 @@ export function Footer() {
     <footer className="w-screen py-4 px-7">
       <div className="flex justify-between items-center">
         <div className="flex items-center opacity-90">
-          <FooterIconLink
-            to="https://twitter.com/Abacus_Network"
-            imgSrc={Twitter}
-            alt="Twitter"
-          />
-          <FooterIconLink
-            to="https://github.com/abacus-network/abacus-nft"
-            imgSrc={Github}
-            alt="Github"
-          />
-          <FooterIconLink
-            to={config.discordUrl}
-            imgSrc={Discord}
-            alt="Discord"
-          />
+          <FooterIconLink to={links.twitter} imgSrc={Twitter} />
+          <FooterIconLink to={links.github} imgSrc={Github} />
+          <FooterIconLink to={links.discord} imgSrc={Discord} />
         </div>
         <BlockIndicator />
       </div>
@@ -36,12 +24,10 @@ export function Footer() {
 function FooterIconLink({
   to,
   imgSrc,
-  alt,
   last,
 }: {
   to: string;
   imgSrc: any;
-  alt: string;
   last?: boolean;
 }) {
   return (
@@ -51,7 +37,7 @@ function FooterIconLink({
       rel="noopener noreferrer"
       className={last ? '' : 'mr-5'}
     >
-      <Image src={imgSrc} alt={alt} width={25} height={25} />
+      <Image src={imgSrc} width={25} height={25} />
     </a>
   );
 }

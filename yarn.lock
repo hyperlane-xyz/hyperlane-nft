@@ -37,54 +37,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@abacus-network/nft@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@abacus-network/nft@workspace:."
-  dependencies:
-    "@abacus-network/sdk": ^0.4.0-beta0
-    "@metamask/jazzicon": "https://github.com/jmrossy/jazzicon#7a8df28974b4e81129bfbe3cab76308b889032a6"
-    "@nomiclabs/hardhat-ethers": ^2.0.5
-    "@nomiclabs/hardhat-waffle": ^2.0.2
-    "@openzeppelin/contracts-upgradeable": ^4.6.0
-    "@rainbow-me/rainbowkit": ^0.4.5
-    "@trivago/prettier-plugin-sort-imports": ^3.2.0
-    "@typechain/ethers-v5": 10.0.0
-    "@typechain/hardhat": ^6.0.0
-    "@types/mocha": ^9.1.0
-    "@types/node": 18.0.4
-    "@types/react": 18.0.15
-    "@types/react-dom": 18.0.6
-    "@typescript-eslint/eslint-plugin": ^5.27.0
-    "@typescript-eslint/parser": ^5.27.0
-    autoprefixer: ^10.4.7
-    chai: ^4.3.0
-    eslint: ^8.19.0
-    eslint-config-next: ^12.2.2
-    eslint-config-prettier: ^8.5.0
-    ethereum-waffle: ^3.4.4
-    ethers: ^5.6.8
-    formik: ^2.2.9
-    hardhat: ^2.8.4
-    hardhat-gas-reporter: ^1.0.7
-    next: ^12.2.2
-    postcss: ^8.4.14
-    prettier: ^2.4.1
-    prettier-plugin-solidity: ^1.0.0-beta.5
-    react: ^18.2.0
-    react-accessible-dropdown-menu-hook: ^3.2.0
-    react-dom: ^18.2.0
-    react-toastify: ^9.0.5
-    solhint: ^3.3.2
-    solhint-plugin-prettier: ^0.0.5
-    solidity-coverage: ^0.7.14
-    tailwindcss: ^3.1.6
-    ts-node: ^10.8.0
-    typechain: 8.0.0
-    typescript: ^4.7.4
-    wagmi: ^0.5.11
-  languageName: unknown
-  linkType: soft
-
 "@abacus-network/sdk@npm:^0.4.0-beta0":
   version: 0.4.0-beta0
   resolution: "@abacus-network/sdk@npm:0.4.0-beta0"
@@ -1166,6 +1118,54 @@ __metadata:
   checksum: a824a1ec31591231e4bad5787641f59e9633827d0a2eaae131a288d33c9ef0290bd16fda8da6f7c0fcb014147865d12118df10db57f27f41e20da92369fcb3f1
   languageName: node
   linkType: hard
+
+"@hyperlane-xyz/nft@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@hyperlane-xyz/nft@workspace:."
+  dependencies:
+    "@abacus-network/sdk": ^0.4.0-beta0
+    "@metamask/jazzicon": "https://github.com/jmrossy/jazzicon#7a8df28974b4e81129bfbe3cab76308b889032a6"
+    "@nomiclabs/hardhat-ethers": ^2.0.5
+    "@nomiclabs/hardhat-waffle": ^2.0.2
+    "@openzeppelin/contracts-upgradeable": ^4.6.0
+    "@rainbow-me/rainbowkit": ^0.4.5
+    "@trivago/prettier-plugin-sort-imports": ^3.2.0
+    "@typechain/ethers-v5": 10.0.0
+    "@typechain/hardhat": ^6.0.0
+    "@types/mocha": ^9.1.0
+    "@types/node": 18.0.4
+    "@types/react": 18.0.15
+    "@types/react-dom": 18.0.6
+    "@typescript-eslint/eslint-plugin": ^5.27.0
+    "@typescript-eslint/parser": ^5.27.0
+    autoprefixer: ^10.4.7
+    chai: ^4.3.0
+    eslint: ^8.19.0
+    eslint-config-next: ^12.2.2
+    eslint-config-prettier: ^8.5.0
+    ethereum-waffle: ^3.4.4
+    ethers: ^5.6.8
+    formik: ^2.2.9
+    hardhat: ^2.8.4
+    hardhat-gas-reporter: ^1.0.7
+    next: ^12.2.2
+    postcss: ^8.4.14
+    prettier: ^2.4.1
+    prettier-plugin-solidity: ^1.0.0-beta.5
+    react: ^18.2.0
+    react-accessible-dropdown-menu-hook: ^3.2.0
+    react-dom: ^18.2.0
+    react-toastify: ^9.0.5
+    solhint: ^3.3.2
+    solhint-plugin-prettier: ^0.0.5
+    solidity-coverage: ^0.7.14
+    tailwindcss: ^3.1.6
+    ts-node: ^10.8.0
+    typechain: 8.0.0
+    typescript: ^4.7.4
+    wagmi: ^0.5.11
+  languageName: unknown
+  linkType: soft
 
 "@jridgewell/gen-mapping@npm:^0.3.2":
   version: 0.3.2

@@ -54,7 +54,7 @@ export function SearchForm() {
         validateOnBlur={false}
       >
         <Form className="flex flex-col justify-center items-center w-full">
-          <h2 className="text-gray-700">Your Abacus NFTs</h2>
+          <h2 className="text-gray-700">Your Hyperlane NFTs</h2>
           {nfts.length > 0 ? (
             <NftCardCarousel nfts={nfts} />
           ) : (

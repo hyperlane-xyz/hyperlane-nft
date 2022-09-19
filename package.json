@@ -1,6 +1,6 @@
 {
-  "name": "@abacus-network/nft",
-  "description": "A cross-chain NFT app built on Abacus",
+  "name": "@hyperlane-xyz/nft",
+  "description": "A cross-chain NFT app built on Hyperlane",
   "version": "0.1.0",
   "author": "J M Rossy",
   "dependencies": {
@@ -48,14 +48,14 @@
     "typechain": "8.0.0",
     "typescript": "^4.7.4"
   },
-  "homepage": "https://www.useabacus.network",
+  "homepage": "https://www.hyperlane.xyz",
   "license": "Apache-2.0",
   "main": "dist/src/index.js",
   "packageManager": "yarn@3.2.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/abacus-network/abacus-nft"
+    "url": "https://github.com/hyperlane-xyz/hyperlane-nft"
   },
   "scripts": {
     "clean": "hardhat clean && rm -rf dist cache src/types .next",
