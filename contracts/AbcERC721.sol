@@ -12,7 +12,6 @@ import {ERC721EnumerableUpgradeable} from "@openzeppelin/contracts-upgradeable/t
  * @author Abacus Works
  */
 contract AbcERC721 is Router, ERC721EnumerableUpgradeable {
-   
     /**
      * @dev Emitted on `transferRemote` when a transfer message is dispatched.
      * @param destination The identifier of the destination chain.
